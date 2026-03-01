@@ -1,0 +1,113 @@
+<template>
+    <lightning-card title="NGO Programme Dashboard" icon-name="standard:dashboard">
+        <div class="slds-p-around_medium">
+
+            <!-- Loading spinner -->
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+
+            <template if:false={isLoading}>
+
+                <!-- Error state -->
+                <template if:true={hasError}>
+                    <div class="slds-notify slds-notify_alert slds-alert_error">
+                        <p>{errorMessage}</p>
+                    </div>
+                </template>
+
+                <template if:false={hasError}>
+
+                    <!-- Summary Stats Row -->
+                    <div class="slds-grid slds-gutters slds-wrap slds-m-bottom_large">
+                        <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4">
+                            <div class="slds-box slds-theme_shade slds-text-align_center">
+                                <p class="slds-text-heading_large slds-text-color_success">{totalProgrammes}</p>
+                                <p class="slds-text-body_small">Active Programmes</p>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4">
+                            <div class="slds-box slds-theme_shade slds-text-align_center">
+                                <p class="slds-text-heading_large slds-text-color_success">{totalDonationsFormatted}</p>
+                                <p class="slds-text-body_small">Total Donations</p>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4">
+                            <div class="slds-box slds-theme_shade slds-text-align_center">
+                                <p class="slds-text-heading_large slds-text-color_success">{totalBeneficiaries}</p>
+                                <p class="slds-text-body_small">Beneficiaries Enrolled</p>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4">
+                            <div class="slds-box slds-theme_shade slds-text-align_center">
+                                <p class="slds-text-heading_large slds-text-color_success">{provincesReached}</p>
+                                <p class="slds-text-body_small">Provinces Reached</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Programme Table -->
+                    <h3 class="slds-text-heading_small slds-m-bottom_small">Programme Overview</h3>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th>Programme Name</th>
+                                <th>Province</th>
+                                <th>Focus Area</th>
+                                <th>Status</th>
+                                <th>Total Donations (ZAR)</th>
+                                <th>Funding Progress</th>
+                                <th>Beneficiaries</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={programmes} for:item="prog">
+                                <tr key={prog.Id}>
+                                    <td>{prog.Name}</td>
+                                    <td>{prog.Province__c}</td>
+                                    <td>{prog.Focus_Area__c}</td>
+                                    <td>
+                                        <lightning-badge
+                                            label={prog.Status__c}
+                                            class={prog.statusClass}>
+                                        </lightning-badge>
+                                    </td>
+                                    <td>R {prog.Total_Donations__c}</td>
+                                    <td>
+                                        <lightning-progress-bar
+                                            value={prog.Funding_Progress__c}
+                                            size="medium">
+                                        </lightning-progress-bar>
+                                        <span class="slds-text-body_small">{prog.Funding_Progress__c}%</span>
+                                    </td>
+                                    <td>{prog.BeneficiaryCount}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+
+                    <!-- Province Breakdown -->
+                    <h3 class="slds-text-heading_small slds-m-top_large slds-m-bottom_small">
+                        Beneficiaries by Province
+                    </h3>
+                    <div class="slds-grid slds-gutters slds-wrap">
+                        <template for:each={provinceStats} for:item="stat">
+                            <div key={stat.province} class="slds-col slds-size_1-of-3 slds-m-bottom_small">
+                                <div class="slds-box slds-theme_shade">
+                                    <p class="slds-text-body_regular slds-text-color_default">
+                                        <strong>{stat.province}</strong>
+                                    </p>
+                                    <p class="slds-text-body_small">{stat.count} beneficiaries</p>
+                                    <lightning-progress-bar value={stat.percentage} size="small">
+                                    </lightning-progress-bar>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
+                </template>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

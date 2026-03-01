@@ -1,0 +1,13 @@
+.slds-text-color_success {
+    color: #2e7d32;
+}
+
+.slds-box {
+    border-radius: 6px;
+    padding: 12px;
+}
+
+table th {
+    font-weight: 600;
+    background-color: #f4f6f9;
+}
