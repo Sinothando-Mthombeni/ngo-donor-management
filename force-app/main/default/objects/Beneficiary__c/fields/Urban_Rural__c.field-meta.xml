@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Urban_Rural__c</fullName>
+    <label>Urban or Rural</label>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Urban</fullName><default>false</default><label>Urban</label></value>
+            <value><fullName>Rural</fullName><default>false</default><label>Rural</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Donation</label>
+    <pluralLabel>Donations</pluralLabel>
+    <nameField>
+        <label>Donation Number</label>
+        <type>AutoNumber</type>
+        <displayFormat>DON-{0000}</displayFormat>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ControlledByParent</sharingModel>
+    <description>A single financial contribution from a donor to a programme.</description>
+</CustomObject>

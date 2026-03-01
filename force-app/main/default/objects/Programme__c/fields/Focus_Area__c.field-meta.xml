@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Focus_Area__c</fullName>
+    <label>Focus Area</label>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Youth Skills Development</fullName><default>false</default><label>Youth Skills Development</label></value>
+            <value><fullName>Rural Food Security</fullName><default>false</default><label>Rural Food Security</label></value>
+            <value><fullName>Early Childhood Education</fullName><default>false</default><label>Early Childhood Education</label></value>
+            <value><fullName>Women Economic Empowerment</fullName><default>false</default><label>Women Economic Empowerment</label></value>
+            <value><fullName>Healthcare Access</fullName><default>false</default><label>Healthcare Access</label></value>
+            <value><fullName>Housing Support</fullName><default>false</default><label>Housing Support</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

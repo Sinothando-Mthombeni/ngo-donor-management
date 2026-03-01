@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Age_Group__c</fullName>
+    <label>Age Group</label>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Child (0-12)</fullName><default>false</default><label>Child (0-12)</label></value>
+            <value><fullName>Youth (13-24)</fullName><default>false</default><label>Youth (13-24)</label></value>
+            <value><fullName>Adult (25-59)</fullName><default>false</default><label>Adult (25-59)</label></value>
+            <value><fullName>Senior (60+)</fullName><default>false</default><label>Senior (60+)</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
