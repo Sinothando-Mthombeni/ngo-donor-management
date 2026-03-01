@@ -3,7 +3,7 @@
     <fullName>Funding_Progress__c</fullName>
     <label>Funding Progress (%)</label>
     <type>Percent</type>
-    <formula>IF(Funding_Goal__c &gt; 0, (Total_Donations__c / Funding_Goal__c) * 100, 0)</formula>
+    <formula>IF(Funding_Goal__c > 0, (Total_Donations__c / Funding_Goal__c) * 100, 0)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <precision>5</precision>
     <scale>1</scale>
